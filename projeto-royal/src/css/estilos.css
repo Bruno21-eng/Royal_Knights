@@ -1,0 +1,293 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url("../imagens/background_digimon.jpg");
+        /* ../ é pra voltar uma pasta pra trás */
+    background-size: cover;
+    /*tamanho do fundo, com cover, ela cobre todo o tamanho*/  
+    background-position: center;
+}
+/*isso é um pseudo elemento,aq estamos criando um elemento que vai ficar depois do body, ele vai ficar fixo na tela, isso tudo é para fazer o desfoque*/
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    backdrop-filter: blur(8px);/*ai colocamos o blur, essa propriedade que deu o desfoque.*/
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;/*vh = viewport height, 100 = toda a altura disponível*/
+}
+
+.digimons {
+    display: flex;
+    gap: 30px;
+    padding: 30px 0;
+}
+
+.cartao-digimon {
+    display: none;
+    max-width: 400px;
+    border-radius: 10px;
+
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+/*Se abrimos deste modo com uma classe e outra, uma do lado da outra com um ., estamos dizendo que todos os elementos que tenham essas duas classes, que ele quer estilizar.*/
+.cartao-digimon.aberto {
+    display: block;
+}
+
+/*seletor de descendente para estilziar as imagens que estão dentro do cartao pokedev*/
+.cartao-digimon img {
+    width: 110%;
+    height: 100%;
+    margin-top: 15px;
+}
+
+.cartao-digimon .cartao-topo {
+    padding: 30px 40px 0;
+}
+
+.cartao-digimon .nome {
+    margin-bottom: 5px;
+}
+
+.cartao-digimon .tipo {
+    background-color: #ffffff;
+    font-size: 13px;
+    opacity: 0.7;
+    border-radius: 10px;
+    padding: 2px 10px;
+}
+
+.cartao-digimon .detalhes {
+    color: #ffffff;
+    display: flex; /*ficou um elemento do lado do outro*/
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartao-digimon .cartao-informacoes {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 35px 50px;
+    margin-top: -55px;/*se vc coloca negativo, ele faz o contrario, inves dele fazer a margem, ele invade o espaço, de certa forma.*/
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.cartao-digimon .cartao-informacoes h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #6b727a;
+}
+
+.cartao-digimon .cartao-informacoes .descricao {
+    padding: 0 10px;
+    font-size: 15px;
+    max-height: 150px;
+    overflow-y: scroll;/*overflow seria vazar, se vazar algum texto no eixo y, ele abre um scroll, ela tem q ter uma altura fixa no elemento para funcionar*/
+}
+
+.cor-eletrico {
+    background-color: #fcc719;
+}
+
+.cor-fogo {
+    background-color: #d4241e;
+}
+.cor-marrom{
+    background-color: #ab5926;
+}
+
+.cor-roxo {
+    background-color: #5927d7;
+}
+
+.cor-agua {
+    background-color: #376ab8;
+}
+
+.cor-trevas {
+    background-color: #BA68C8;
+}
+
+.cor-fada {
+    background-color: #ba7575;
+}
+
+.cor-luz{
+    background-color: #e8d546;
+}
+
+.listagem {
+    max-width: 200px;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    max-height: 700px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.listagem .digimon img {
+    width: 25%;
+}
+
+.listagem .digimon {
+    background-color: #6b727a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+    min-height: 70px;
+
+    transition: 0.15 ease-in-out; /*0.15 é o valor de tempo, depois animação q é o ease in out e o*/
+}
+
+.listagem .digimon:hover {
+    transform: scale(1.05);/*ele escala ao deixar o mouse em cima, ele + o transition acima que dão o detalhe*/
+}
+
+.listagem .digimon span {
+    padding-right: 20px;
+}
+
+.listagem .digimon.ativo {
+    background-color: #fa6668;
+}
+.listagem .digimon.ativo.alphamon{
+    animation: muda-cor-alphamon 2s 1.30s alternate infinite;
+}
+.listagem .digimon.ativo.craniamon{
+    animation: muda-cor-craniamon 2s 1.30s alternate infinite;
+}
+.listagem .digimon.ativo.duftmon{
+    animation: muda-cor-duftmon 2s 1.30s alternate infinite;
+}
+.listagem .digimon.ativo.dynasmon{
+    animation: muda-cor-craniamon 2s 1.30s alternate infinite;
+}
+.listagem .digimon.ativo.dukemon{
+    animation: muda-cor-dukemon 2s 1.30s alternate infinite;
+
+}
+.listagem .digimon.ativo.examon{
+    animation: muda-cor-examon 2s 1.30s alternate infinite;
+
+}
+.listagem .digimon.ativo.gankoomon{
+    animation: muda-cor-gankoomon 2s 1.30s alternate infinite;
+
+}
+.listagem .digimon.ativo.jesmon{
+    animation: muda-cor-examon 2s 1.30s alternate infinite;
+
+}
+.listagem .digimon.ativo.lordknightmon{
+    animation: muda-cor-lord 2s 1.30s alternate infinite;
+
+}
+.listagem .digimon.ativo.magnamon{
+    animation: muda-cor-alphamon 2s 1.30s alternate infinite;
+
+}
+.listagem .digimon.ativo.omegamon{
+    animation: muda-cor-omega 2s 1.30s alternate infinite;
+
+}
+
+.listagem .digimon.ativo.sleipmon{
+    animation: muda-cor-dukemon 2s 1.30s alternate infinite;
+
+}
+
+.listagem .digimon.ativo.ulforcev-dramon{
+    animation: muda-cor-alphamon 2s 1.30s alternate infinite;
+
+}
+
+
+@keyframes muda-cor-alphamon {
+    from{
+        background-color: #fa6668;
+    }
+    to{
+        background-color: #fcc719;
+    }
+}
+
+@keyframes muda-cor-craniamon {
+    from{
+        background-color: #fa6668;
+    }
+    to{
+        background-color: #5927d7;
+    }
+}
+
+@keyframes muda-cor-duftmon {
+    from{
+        background-color: #fa6668;
+    }
+    to{
+        background-color: #ab5926;
+    }
+}
+
+@keyframes muda-cor-gankoomon {
+    from{
+        background-color: #fa6668;
+    }
+    to{
+        background-color: #e8d546;
+    }
+}
+
+@keyframes muda-cor-dukemon {
+    from{
+        background-color: #fa6668;
+    }
+    to{
+        background-color: #d4241e;
+    }
+}
+
+@keyframes muda-cor-examon {
+    from{
+        background-color: #fa6668;
+    }
+    to{
+        background-color: #ba7575;
+    }
+}
+
+@keyframes muda-cor-lord {
+    from{
+        background-color: #fa6668;
+    }
+    to{
+        background-color: #BA68C8;
+    }   
+}
+
+@keyframes muda-cor-omega {
+    from{
+        background-color: #fa6668;
+    }
+    to{
+        background-color: #376ab8;
+    }   
+}

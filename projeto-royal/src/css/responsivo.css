@@ -1,0 +1,34 @@
+@media(max-width: 750px){
+    .digimons{
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+    }
+    .cartao-digimon{
+        max-width: 300px;
+    }
+    .cartao-digimon .cartao-informacoes{
+        padding: 60px 30px 30px;
+        margin-top: -50px;
+    }
+    .cartao-digimon .cartao-informacoes h3{
+        font-size: 16px;
+    }
+    .listagem{
+        max-width: 360px;
+    }
+    .listagem .digimon{
+        width: 45%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        /*pra ficar reto os botões*/
+        border-radius: 8px;
+    }
+    .listagem ul{
+        display: flex;
+        max-height: 650px;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px; /*usado para fazer espaçamento*/
+    }
+}
